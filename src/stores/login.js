@@ -9,17 +9,16 @@ export const useLoginStore = defineStore(
 
         actions: {
             login({ username, password }) {
-               let result = false
-                if (username === "user" && password === "password") {
+                if (username === "user@user.com" && password === "password") {
                     this.isLoggedIn = true
                     this.role = "user"
-                    result = true
-                } else if (username === "admin" && password === "adminPassword") {
+                    return true
+                } else if (username === "admin@admin.com" && password === "adminPassword") {
                     this.isLoggedIn = true
                     this.role = "admin"
-                    result = true
+                    return true
                 }
-                return result
+                return false
             },
             logout() {
                 this.isLoggedIn = false

@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import InicioSesion from '../views/InicioSesionView.vue'
+import InicioSesion from '../views/IniciarSesionView.vue'
 import Tareas from '../views/Tareas.vue'
 import UserView from '../views/UserView.vue'
 import AdminView from '../views/AdminView.vue'
@@ -24,7 +24,6 @@ const router = createRouter({
       component: UserView,
       meta: { requiresAuth: true, role: 'user' }
     },
-
     {
       path: '/admin',
       name: 'admin',
@@ -36,7 +35,8 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
     const store = useLoginStore();
-    if(to.matched.some(r => r.meta.RequireAuth) && !store.isLoggedIn) {
+
+    if(to.matched.some(r => r.meta.RequireAuth) && store.isLoggedIn) {
         next('/InicioSesion')
     }
     next()
