@@ -6,7 +6,6 @@ export const useLoginStore = defineStore(
             isLoggedIn: false,
             role: "",
         }),
-
         actions: {
             login({ username, password }) {
                 if (username === "user@user.com" && password === "password") {
