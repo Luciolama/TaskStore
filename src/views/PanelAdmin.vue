@@ -4,15 +4,17 @@
 		<div class="row dashboardContainer">
 			<ColumnaUsuarios />
 			<div class="col dashboardRightColumn">
-				<ColumnaTareas />
-				<div class="row buttons">
-					<div class="row deleteButtons">
-						<button class="btn delete">Eliminar usuario</button>
-						<button class="btn deleteSecondary"
-							>Eliminar todas las tareas</button
-						>
-					</div>
-					<button class="btn download">Descargar Informe</button>
+				<ColumnaTareas :taskList="taskStore.tasks" />
+				<div class="row buttons-right">
+					<Button
+						class="btn-admin deleteSecondary"
+						@click="
+							() => {
+								taskStore.deleteAllTasks();
+							}
+						"
+						>Eliminar todas las tareas</Button
+					>
 				</div>
 			</div>
 		</div>
@@ -22,8 +24,16 @@
 <script>
 import ColumnaTareas from "./ColumnaTareas.vue";
 import ColumnaUsuarios from "./ColumnaUsuarios.vue";
+import { useTaskStore } from "../stores/taskStore";
 
 export default {
+	setup() {
+		const taskStore = useTaskStore();
+
+		taskStore.getTasks();
+
+		return { taskStore };
+	},
 	components: { ColumnaTareas, ColumnaUsuarios },
 };
 </script>

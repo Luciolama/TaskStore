@@ -1,5 +1,18 @@
 <script>
 import { RouterLink, RouterView } from "vue-router";
+import { useLoginStore } from "./stores/login.js";
+import { storeToRefs } from "pinia";
+import { ref } from "vue";
+
+export default {
+	components: { RouterLink, RouterView },
+	setup() {
+		const store = useLoginStore();
+		const { isLoggedIn, role } = storeToRefs(store);
+		const { logout } = store;
+		return { isLoggedIn, role, logout };
+	},
+};
 </script>
 
 <template>
@@ -7,9 +20,16 @@ import { RouterLink, RouterView } from "vue-router";
 		<header class="fixed-header">
 			<div>
 				<nav>
-					<RouterLink to="/login">Login |</RouterLink>
-					<RouterLink to="/tareas"> Tareas |</RouterLink>
-					<RouterLink to="/admin"> Admin</RouterLink>
+					<RouterLink v-if="!isLoggedIn" to="/">Login</RouterLink>
+					<RouterLink v-if="isLoggedIn && role === 'user'" to="/tareas"
+						>Tareas
+					</RouterLink>
+					<RouterLink v-if="isLoggedIn && role === 'admin'" to="/admin"
+						>Admin</RouterLink
+					>
+					<RouterLink v-if="isLoggedIn" to="/" @click="logout">
+						| Cerrar sesión</RouterLink
+					>
 				</nav>
 			</div>
 		</header>

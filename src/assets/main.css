@@ -206,7 +206,11 @@ form input{
   justify-content: space-between;
 }
 
-.btn{
+.buttons-right{
+  justify-content: right;
+}
+
+.btn-admin{
   font-size: 1rem;
   padding: .7rem 1.5rem;
   border-radius: .8rem;
@@ -216,6 +220,8 @@ form input{
   cursor: pointer;
   box-shadow: 2px 5px 10px #00000000;
   transition: .3s;
+  font-weight: regular;
+  text-decoration: none;
 }
 
 .delete{
@@ -232,7 +238,7 @@ form input{
   background-color:#1DAB77;
 }
 
-.btn:hover{
+.btn-admin:hover{
     box-shadow: 2px 5px 10px #00000080;
     transition: .3s;
 }
