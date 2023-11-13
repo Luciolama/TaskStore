@@ -49,6 +49,14 @@ header h1 {
   transform: rotate(2deg);
 }
 
+header h2 {
+  margin: 0;
+  font-size: 2em;
+  padding-top: 25px;
+  margin-left: 15px;
+  color: #777;
+}
+
 
 .task-list{
   max-width: 640px;
@@ -151,4 +159,108 @@ form input{
   text-align: center;
   margin: 30px auto;
 
+}
+
+/* Panel admin */
+
+.dashboardContainer{
+  gap: 1rem;
+  height: 90vh;
+  padding: 2rem;
+  width: 100%;
+}
+
+.dashboardItem{
+  background-color: #fff;
+  box-shadow: 2px 5px 10px #00000030;
+  height: 100%;
+  border-radius: 1rem;
+  width: 100%;
+  padding: 2rem
+}
+
+.dashboardItem h2{
+  border-bottom: 2px solid #1DAB77;
+}
+
+.dashboardRightColumn{
+  width: 70%;
+  gap: 1rem;
+}
+
+.dashboardLeftColumn{
+  width: 30%;
+}
+
+.row{
+  display: flex;
+  flex-direction: row;
+}
+
+.col{
+  display: flex;
+  flex-direction: column;
+}
+
+.buttons{
+  justify-content: space-between;
+}
+
+.btn{
+  font-size: 1rem;
+  padding: .7rem 1.5rem;
+  border-radius: .8rem;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 2px 5px 10px #00000000;
+  transition: .3s;
+}
+
+.delete{
+  background-color: #FF3131;
+}
+
+.deleteSecondary{
+  color: #FF3131;
+  background-color: transparent;
+  border: 2px solid #FF3131;
+}
+
+.download{
+  background-color:#1DAB77;
+}
+
+.btn:hover{
+    box-shadow: 2px 5px 10px #00000080;
+    transition: .3s;
+}
+
+.deleteButtons{
+  gap: .5rem;
+}
+
+.dashboardItemList{
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.listItem{
+  width: 100%;
+  background-color: #f2f2f2;
+  box-shadow: 2px 3px 5px #00000030;
+  padding: 1.5rem;
+  border-radius: .5rem;
+  margin-top: 1rem;
+  border: 2px solid transparent;
+}
+
+.listItem:hover{
+  background-color: #fff;
+}
+
+.selected{
+  border: 2px solid #1DAB77;
+  background-color: #fff;
 }
